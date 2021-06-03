@@ -1,0 +1,50 @@
+go_tested_binary {
+  name: "server",
+  pkg: "github.com/SofiaMazur/razur_s2_lab3/cmd/server",
+  srcs: [
+    "httptools/**/*.go",
+    "signal/**/*.go",
+    "cmd/server/*.go"
+  ],
+  testPkg: "github.com/SofiaMazur/razur_s2_lab3/cmd/server",
+  testSrcs: ["**/*_test.go"]
+}
+
+go_tested_binary {
+  name: "lb",
+  pkg: "github.com/SofiaMazur/razur_s2_lab3/cmd/lb",
+  srcs: [
+    "httptools/**/*.go",
+    "signal/**/*.go",
+    "cmd/lb/*.go"
+  ],
+  testPkg: "github.com/SofiaMazur/razur_s2_lab3/cmd/lb",
+  testSrcs: ["**/*_test.go"]
+}
+
+ go_tested_binary {
+  name: "db",
+  pkg: "github.com/SofiaMazur/razur_s2_lab3/cmd/db",
+  srcs: [
+    "httptools/**/*.go",
+    "signal/**/*.go",
+    "cmd/lb/*.go"
+  ],
+  testPkg: "github.com/SofiaMazur/razur_s2_lab3/cmd/db",
+  testSrcs: ["**/*_test.go"]
+}
+
+// TODO: Додайте модуль для інтеграційних тестів.
+go_tested_binary {
+  name: "integration-tests",
+  pkg: "github.com/SofiaMazur/razur_s2_lab3/integration",
+  srcs: [
+    "httptools/**/*.go",
+    "signal/**/*.go",
+    "cmd/lb/*.go"
+  ],
+  testPkg: "github.com/SofiaMazur/razur_s2_lab3/integration",
+  testSrcs: ["balancer_test.go"],
+  optionalTest: true,
+  optionalBuild: true
+}
